@@ -1,0 +1,35 @@
+CASOS DE TESTES -  AMAZON ,,,,,,,
+Casos de Teste — exemplo preenchido: Amazon.com.br,,,,,,,
+,,,,,,,
+" Sistema testado: https://www.amazon.com.br  |  Ambiente: Chrome, Windows 11, desktop  |  Usuário: visitante não autenticado. Use como referência para montar os seus próprios casos.",,,,,,,
+,,,,,,,
+ID,Título do caso de teste,Pré-condição,Passos para executar,Dado de teste,Resultado esperado,Resultado obtido,Status
+CT-01,Buscar produto existente pelo nome,"Estar na página inicial do site, sem login","1. Acessar amazon.com.br
+2. Clicar na barra de busca
+3. Digitar o termo
+4. Pressionar Enter","""fone de ouvido bluetooth""",A página de resultados exibe produtos relacionados a fones de ouvido bluetooth,Resultados exibidos são coerentes com o termo buscado,Passou
+CT-02,Buscar termo sem resultados,Estar na página inicial do site,"1. Acessar amazon.com.br
+2. Digitar um termo sem correspondência
+3. Pressionar Enter","""xyzabc123produtoinexistente""",O site exibe mensagem informando que nenhum resultado foi encontrado,Mensagem de nenhum resultado exibida corretamente,Passou
+CT-03,Executar busca com campo vazio,Estar na página inicial do site,"1. Acessar amazon.com.br
+2. Deixar a barra de busca vazia
+3. Pressionar Enter",(campo em branco),"O site permanece na página ou exibe listagem geral, sem erro para o usuário",Página exibe listagem geral sem mensagem de erro,Passou
+CT-04,Aplicar filtro de faixa de preço,Ter executado a busca do CT-01 com resultados na tela,"1. Na coluna de filtros, localizar a faixa de preço
+2. Selecionar a faixa até R$100
+3. Aguardar a lista recarregar","Faixa: até R$ 100,00",Somente produtos com preço até R$100 permanecem na lista,"Na nova execução, após selecionar a faixa até R$ 100,00, a listagem apresentou somente produtos dentro do limite selecionado.",Passou
+CT-05,Ordenar resultados por menor preço,Ter executado a busca do CT-01 com resultados na tela,"1. Abrir o seletor de ordenação
+2. Escolher a opção de menor preço
+3. Observar a ordem da lista",Ordenação: Preço: menor para maior,Os produtos são exibidos em ordem crescente de preço,Ordem crescente de preço aplicada corretamente,Passou
+CT-06,Validar informações exibidas no card do produto,Ter uma lista de resultados na tela,"1. Observar o primeiro card de resultado
+2. Verificar nome, preço e avaliação",Primeiro resultado da busca do CT-01,"O card exibe, no mínimo, nome e preço do produto de forma legível","Nome, preço e avaliação exibidos corretamente",Passou
+,,,,,,,
+RESUMO DA EXECUÇÃO,,,,,,,
+Total de casos executados,,6,,,,,
+Casos aprovados (Passou),,6,,,,,
+Casos reprovados (Falhou),,0,,,,,
+Taxa de aprovação,,"100,0%",,,,,
+,,,,,,,
+HISTÓRICO DE RETESTE,,,,,,,
+CT-04,"Primeira execução: Falhou — foram observados produtos acima de R$ 100,00.",,,,,,
+,Nova execução: Passou — o comportamento esperado foi observado.,,,,,,
+,Observação: não foi confirmada a causa da divergência nem uma correção oficial pela equipe responsável pelo sistema.,,,,,,
